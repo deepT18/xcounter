@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import React,{useState} from "react"
 
 function App() {
+  const [value,setValue]=useState(0)
+  const increase=()=>{
+    setValue((prevValue)=>prevValue+1)
+  }
+  const decrease=()=>{
+    setValue((prevValue)=>prevValue-1)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Counter App</h1>
+      <p>Count: {value}</p>
+      <button onClick={increase}>Increment</button>
+      <button onClick={decrease}>Decrement</button>
     </div>
   );
 }
